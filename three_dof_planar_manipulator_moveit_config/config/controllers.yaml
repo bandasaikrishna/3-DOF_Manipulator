@@ -1,0 +1,10 @@
+controller_manager_ns: controller_manager
+controller_list:
+ - name: three_dof_planar_manipulator/arm_joint_controller
+   action_ns: follow_joint_trajectory
+   type: FollowJointTrajectory
+   default: true
+   joints:
+    - joint1
+    - joint2
+    - joint3
