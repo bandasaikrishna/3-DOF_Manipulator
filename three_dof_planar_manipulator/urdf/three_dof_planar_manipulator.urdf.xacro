@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<robot name="three_dof_planar_manipulator" xmlns:xacro="http://ros.org/wiki/xacro">
+   <material name="blue">
+	  <color rgba="0 0 0.8 1"/>
+   </material>
+
+   <material name="green">
+      <color rgba="0.0 0.8 0.0 1.0"/>
+   </material>
+   
+   <material name="white">
+	<color rgba="1 1 1 1"/>
+   </material>
+ 
+ 
+   <link name="link1">
+   <visual>
+      <geometry>
+         <box size="0.05 0.001 0.01"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0.025 0 0.0"/>
+    </visual>
+   </link>
+   
+   
+   <joint name="joint1" type="revolute">
+     <axis xyz="0 0 1"/>
+     <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+     <origin rpy="0 0 0" xyz="0.05 0 0"/>
+     <parent link="link1"/>
+     <child link="dummy1"/>
+   </joint>
+   
+   <link name="dummy1">
+   <visual>
+      <geometry>
+         <box size="0.115 0.001 0.01"/>
+      </geometry>
+      <material name="blue"/>
+      <origin rpy="0 0 0" xyz="0.0575 0 0.0"/>
+    </visual>
+   </link>
+   
+   <joint name="fixed1" type="fixed">
+     <origin rpy="0 0 1.57" xyz="0.115 0 0"/>
+     <parent link="dummy1"/>
+     <child link="link2"/>
+   </joint>
+   
+   <link name="link2">
+   <visual>
+      <geometry>
+         <box size="0.025 0.001 0.01"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0.0125 0 0.0"/>
+    </visual>
+   </link>
+   
+   <joint name="joint2" type="revolute">
+     <axis xyz="0 0 1"/>
+     <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+     <origin rpy="0 0 0" xyz="0.025 0 0"/>
+     <parent link="link2"/>
+     <child link="dummy2"/>
+   </joint>
+   
+   <link name="dummy2">
+   <visual>
+      <geometry>
+         <box size="0.065 0.001 0.01"/>
+      </geometry>
+      <material name="blue"/>
+      <origin rpy="0 0 0" xyz="0.0325 0 0.0"/>
+    </visual>
+   </link>
+   
+   <joint name="fixed2" type="fixed">
+     <origin rpy="0 0 -1.5708" xyz="0.065 0 0"/>
+     <parent link="dummy2"/>
+     <child link="link3"/>
+   </joint>
+   
+   <link name="link3">
+   <visual>
+      <geometry>
+         <box size="0.005 0.001 0.01"/>
+      </geometry>
+      <material name="white"/>
+      <origin rpy="0 0 0" xyz="0.0025 0 0.0"/>
+    </visual>
+   </link>
+   
+   <joint name="joint3" type="revolute">
+     <axis xyz="0 0 1"/>
+     <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="0.5"/>
+     <origin rpy="0 0 0" xyz="0.005 0 0"/>
+     <parent link="link3"/>
+     <child link="eff"/>
+   </joint>
+   
+   <link name="eff">
+   	<visual>
+      <geometry>
+         <box size="0.001 0.01 0.001"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0.005 0.005"/>
+      <material name="green"/>
+    </visual>
+   </link>
+   
+
+</robot>
