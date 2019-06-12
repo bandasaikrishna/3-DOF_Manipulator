@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py three_dof_planar_manipulator arm three_dof_planar_manipulator_ikfast_arm_plugin /home/ubuntu/ROS_WorkSpace/blog/catkin_ws/src/three_dof_planar_manipulator_ikfast_arm_plugin/src/three_dof_planar_manipulator_arm_ikfast_solver.cpp
